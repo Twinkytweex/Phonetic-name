@@ -1,6 +1,12 @@
+import tkinter as ui
+from tkinter import simpledialog
+
+main = ui.Tk()
+main.withdraw()
 
 with open('file.txt') as f:
     data = [line.strip() for line in f.readlines()]
+
 def natocode(new_file):
     alphabets = []
     names = []
@@ -29,12 +35,15 @@ def natocode(new_file):
 phonetic_dict = natocode(data)
 
 
-inputed_name = input("ONLY ENGLISH შეიყვანე სახელი: ").upper()
+user_imput = simpledialog.askstring(title='NATO', prompt='შეიყვანეთ თქვენი სახელი').upper()
 
 phonetic_name = []
 for key, value in phonetic_dict.items():
-    for i in inputed_name:
+    for i in user_imput:
         if i == key:
             phonetic_name.append(value)
 
-print(f"ბატონო ჯარისკაცო {inputed_name}, შენი ნატოს კოდური სახელია {phonetic_name}")
+print(f"ბატონო ჯარისკაცო {user_imput}, შენი ნატოს კოდური სახელია {phonetic_name}")
+ui.messagebox.showinfo(title='Attention!', message=f"ბატონო ჯარისკაცო {user_imput},"
+                                                f" შენი ნატოს კოდური სახელია {phonetic_name}")
+

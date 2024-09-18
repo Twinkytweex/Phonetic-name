@@ -50,3 +50,4 @@ ui.messagebox.showinfo(title='Attention!', message=f"ბატონო ჯა�
 
 def wtf():
     pass
+    pass
